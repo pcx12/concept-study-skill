@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agent 概念学习</title>
+  <style>
+    :root{--ink:#17202a;--muted:#52606d;--paper:#fffdf8;--line:#d9e2ec;--accent:#c2410c;--soft:#fff1e8;--code:#18222d}
+    *{box-sizing:border-box}body{margin:0;color:var(--ink);background:linear-gradient(135deg,#f8fafc,#fff7ed);font:16px/1.75 system-ui,-apple-system,"Microsoft YaHei",sans-serif}
+    main{max-width:960px;margin:0 auto;padding:48px 24px 72px}header{border-bottom:3px solid var(--ink);padding-bottom:28px;margin-bottom:28px}h1{font-size:clamp(2.2rem,6vw,4.5rem);line-height:1.05;margin:0 0 12px;letter-spacing:0}h2{margin-top:36px;border-left:5px solid var(--accent);padding-left:12px}h3{margin-bottom:6px;color:var(--accent)}p{margin:10px 0}.lead{font-size:1.2rem;color:var(--muted);max-width:760px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}.card{background:rgba(255,255,255,.8);border:1px solid var(--line);border-radius:8px;padding:18px}.tag{display:inline-block;background:var(--soft);color:var(--accent);font-weight:700;padding:2px 9px;border-radius:999px;font-size:.85rem}pre{background:var(--code);color:#e6edf3;border-radius:8px;padding:18px;overflow:auto}code{font-family:Consolas,monospace}table{border-collapse:collapse;width:100%;background:#fff}th,td{border:1px solid var(--line);padding:10px;text-align:left;vertical-align:top}th{background:var(--soft)}a{color:#9a3412}li{margin:5px 0}.note{border-left:4px solid #0f766e;background:#ecfdf5;padding:12px 16px;margin:18px 0}
+  </style>
+</head>
+<body><main>
+  <header><span class="tag">概念一</span><h1>Agent</h1><p class="lead">能够围绕目标感知信息、规划步骤、调用工具并根据结果持续行动的软件系统。</p></header>
+  <section><h2>一句话理解</h2><p>普通聊天模型主要回答一次问题；Agent 则把模型放进一个可执行的循环：<strong>目标 → 观察 → 思考/规划 → 行动 → 反馈</strong>，直到完成任务或安全停止。</p><div class="note">Agent 不是“更聪明的聊天框”，而是模型、工具、状态和控制逻辑的组合。</div></section>
+  <section><h2>组成部分</h2><div class="grid"><article class="card"><h3>模型</h3><p>负责理解指令、判断下一步并生成工具调用或文本。</p></article><article class="card"><h3>工具</h3><p>搜索、数据库、代码执行、浏览器、文件系统等外部能力。</p></article><article class="card"><h3>状态</h3><p>当前任务、历史消息、工具结果、长期记忆和权限上下文。</p></article><article class="card"><h3>控制器</h3><p>编排循环、重试、超时、审批、错误处理和停止条件。</p></article></div></section>
+  <section><h2>基本工作流</h2><pre><code>while not finished:
+    context = collect(goal, history, available_tools)
+    decision = model.plan(context)
+    if decision.requires_approval:
+        ask_human(decision)
+    result = execute(decision.tool, decision.arguments)
+    history.append(result)
+return final_answer</code></pre><p>真实系统通常还需要参数校验、权限隔离、幂等操作、预算限制和可观测日志。</p></section>
+  <section><h2>与相关概念的区别</h2><table><tr><th>系统</th><th>特点</th><th>是否自主行动</th></tr><tr><td>聊天机器人</td><td>输入问题，输出回答</td><td>通常否</td></tr><tr><td>工作流</td><td>步骤预先固定</td><td>有限</td></tr><tr><td>Agent</td><td>根据目标和环境动态选择下一步</td><td>是</td></tr><tr><td>多 Agent</td><td>多个角色协作、分工或互相审查</td><td>是</td></tr></table></section>
+  <section><h2>示例：资料研究 Agent</h2><ol><li>解析用户问题，拆成若干子问题。</li><li>调用搜索工具，读取可信来源。</li><li>去重、比较日期和出处，标记不确定结论。</li><li>整理证据，生成带引用的报告。</li><li>若来源冲突或需要付费权限，暂停并请求人工决定。</li></ol></section>
+  <section><h2>优势与风险</h2><div class="grid"><article class="card"><h3>优势</h3><ul><li>可执行多步骤任务</li><li>能连接真实数据与软件</li><li>可根据反馈修正计划</li><li>适合重复性流程自动化</li></ul></article><article class="card"><h3>风险</h3><ul><li>工具调用错误或参数失控</li><li>提示注入和数据泄露</li><li>循环过长导致成本失控</li><li>错误结果被包装得很可信</li></ul></article></div></section>
+  <section><h2>设计检查清单</h2><ul><li>为每个工具定义严格的输入 schema 和最小权限。</li><li>对删除、付款、发送消息等副作用操作增加人工确认。</li><li>设置最大步数、超时、预算和失败回退。</li><li>记录模型决策、工具输入输出和最终结果，便于审计。</li><li>使用真实任务集评估成功率、成本、延迟和安全性。</li></ul></section>
+  <footer><h2>参考资料</h2><p><a href="https://www.anthropic.com/research/building-effective-agents">Anthropic: Building effective agents</a> · <a href="https://platform.openai.com/docs/guides/agents">OpenAI Agents 文档</a></p></footer>
+</main></body></html>
