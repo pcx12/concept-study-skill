@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="sJMiAyvBy5LNBYtM9v9bVB">
+<head data-page-node-id="gnHKFar6E1hLbARjB72AGh">
+<meta charset="UTF-8" data-page-node-id="FfDiTdXjDeMqX87GKaXZDX">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="QkU3SkGKovFwTWZKmcqKEb">
+<title>LLM Wiki · 个人概念学习资料</title>
+<style>
+  :root {
+    --bg: #f8f9fb; --card: #ffffff; --ink: #1f2933; --muted: #5b6773;
+    --accent: #2563eb; --accent-soft: #eef4ff; --line: #e3e8ef;
+    --green: #16a34a; --orange: #ea580c; --purple: #7c3aed;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Segoe UI", "Microsoft YaHei", "PingFang SC", sans-serif;
+    background: var(--bg); color: var(--ink); line-height: 1.85;
+    padding: 40px 16px 80px;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; }
+  header.hero {
+    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 60%, #3b82f6 100%);
+    color: #fff; border-radius: 16px; padding: 40px 36px; margin-bottom: 36px;
+  }
+  header.hero h1 { font-size: 30px; margin-bottom: 10px; }
+  header.hero p { opacity: .92; font-size: 15px; }
+  .badge {
+    display: inline-block; background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.35);
+    border-radius: 999px; padding: 2px 14px; font-size: 13px; margin-bottom: 14px;
+  }
+  section {
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    padding: 30px 34px; margin-bottom: 26px;
+  }
+  h2 {
+    font-size: 20px; color: var(--accent); margin-bottom: 18px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  h2 .num {
+    background: var(--accent-soft); color: var(--accent); border-radius: 10px;
+    width: 34px; height: 34px; display: inline-flex; align-items: center; justify-content: center;
+    font-size: 16px; flex-shrink: 0;
+  }
+  p + p { margin-top: 12px; }
+  .hl { background: #fff7d6; padding: 1px 5px; border-radius: 4px; font-weight: 600; }
+  .kicker { color: var(--muted); font-size: 14px; margin-bottom: 14px; }
+  blockquote {
+    border-left: 4px solid var(--accent); background: var(--accent-soft);
+    padding: 14px 18px; border-radius: 0 10px 10px 0; margin: 16px 0; color: #1e3a8a;
+  }
+  code {
+    background: #f1f3f7; border: 1px solid var(--line); border-radius: 5px;
+    padding: 1px 6px; font-size: 0.9em; font-family: Consolas, "Courier New", monospace;
+  }
+  pre {
+    background: #0f172a; color: #e2e8f0; border-radius: 10px; padding: 18px 20px;
+    overflow-x: auto; font-size: 13.5px; line-height: 1.7; margin: 14px 0;
+    font-family: Consolas, "Courier New", monospace;
+  }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; margin: 16px 0; }
+  .card { border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; background: #fbfcfe; }
+  .card h3 { font-size: 15px; margin-bottom: 8px; }
+  .card p { font-size: 13.5px; color: var(--muted); }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+  th, td { border: 1px solid var(--line); padding: 10px 14px; text-align: left; vertical-align: top; }
+  th { background: var(--accent-soft); color: #1e3a8a; font-weight: 600; }
+  tr:nth-child(even) td { background: #fafbfd; }
+  .vs { margin: 14px 0; }
+  .vs .tag { font-weight: 700; }
+  .vs .tag.a { color: var(--accent); } .vs .tag.b { color: var(--orange); }
+  .flow { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 16px 0; }
+  .flow .step {
+    background: var(--accent-soft); border: 1px solid #c7d7f7; color: #1e3a8a;
+    border-radius: 10px; padding: 8px 14px; font-size: 13.5px; font-weight: 600;
+  }
+  .flow .arr { color: var(--accent); font-weight: 700; }
+  .refs li { margin-bottom: 10px; }
+  .refs a { color: var(--accent); text-decoration: none; border-bottom: 1px dotted var(--accent); }
+  .refs a:hover { border-bottom-style: solid; }
+  .refs .desc { color: var(--muted); font-size: 13.5px; }
+  .tip {
+    background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px;
+    padding: 12px 16px; margin: 14px 0; font-size: 14px; color: #14532d;
+  }
+  footer { text-align: center; color: var(--muted); font-size: 13px; margin-top: 30px; }
+</style>
+</head>
+<body data-page-node-id="ZVzlbD3zgkhKOFKMYp1Cx7">
+<div class="wrap" data-page-node-id="u5yd9ohkV2y44CEym9nSRh">
+
+<header class="hero" data-page-node-id="462u6GByPDaSmgBkKJsrXp">
+  <div class="badge" data-page-node-id="y6tZPhTBqZKQdcm883VJV7">个人概念学习资料 · 第 4 份</div>
+  <h1 data-page-node-id="T83mbYPlzwjMTt135EXwAm">LLM Wiki：让 AI 替你维护的"活的"知识库</h1>
+  <p data-page-node-id="qD3kypNFcW8uolgGulT8k7">Andrej Karpathy 于 2026 年 4 月提出的个人知识库模式 —— 知识不再每次现查现拼，而是被编译成一份持续生长的资产。</p>
+</header>
+
+<section data-page-node-id="65RlfTmxNKpYVmEbCSuDbX">
+  <h2 data-page-node-id="6HItFAAGvISplFpQqv0mP8"><span class="num" data-page-node-id="L9a1ng6OYvEbWJ2xX0yChd">①</span>我的理解</h2>
+  <p class="kicker" data-page-node-id="lfrF5etilPQvgxpVUEPGBG">先用大白话说清楚：这东西到底是什么？</p>
+  <p data-page-node-id="fFX5Klak6t4aFfVQUQx0cX">你一定用过 NotebookLM 或者 ChatGPT 的文件上传：丢一堆文档进去，提问时 AI <span class="hl" data-page-node-id="ReFq0Wd8WAOIzzcd1os1IL">临时去翻原文</span>，拼出一段回答。这就是 RAG 模式。它的问题在于——<span class="hl" data-page-node-id="9EyT58q0oxFbXWaPHZHaSO">每次提问都是从零开始翻找</span>，AI 不会"记住"它读过的东西，知识永远不积累。问一个需要综合五份文档的复杂问题，它就得每次都重新找齐、重新拼装这五份文档。</p>
+  <p data-page-node-id="jzgAT7I86TSwXFBdUnkOrt"><strong data-page-node-id="tV4YzravA9hrqGfKGXiaoE">LLM Wiki 是完全相反的思路。</strong>它让 LLM 把你喂给它的每一份资料<span class="hl" data-page-node-id="JwHfeC6ZWs9K9bIfebns3L">当场"消化"掉</span>：提取关键信息，写进一组互相链接的 Markdown 页面里，更新实体页、修订主题摘要、标记新旧资料之间的矛盾。知识被<span class="hl" data-page-node-id="tUJ5XWnegmI2DdKAlAL59n">编译一次，然后持续保鲜</span>，而不是每次查询都重新推导。</p>
+  <blockquote data-page-node-id="igEtUzxGc4O1WbENDST7zx">一句话总结：RAG 是"开卷考试"——每次都现翻书；LLM Wiki 是"让图书管理员把书读完、整理成一套互相引用的笔记，之后你只问笔记"。关键区别：<strong data-page-node-id="XDvUOxUPWpg53Luv1O7tKD">wiki 是一个持久的、会复利增长的工件（persistent, compounding artifact）。</strong></blockquote>
+  <p data-page-node-id="9hwQxJuYaYyuhQTm0Lkf0L">还有一个颠覆性的分工：<strong data-page-node-id="poA4QKu2659nDOA1TqT0Tb">你几乎不亲手写 wiki。</strong>你负责找资料、提好问题；LLM 负责所有繁琐的维护——写摘要、建交叉引用、归档、记账。Karpathy 的原话类比很妙：<em data-page-node-id="rLziJf0evcj2Rfpb5IGD8b">Obsidian 是 IDE，LLM 是程序员，wiki 是代码库。</em></p>
+</section>
+
+<section data-page-node-id="gt7fL7nfFDvCs1F4f18CGH">
+  <h2 data-page-node-id="lzolr5L31EhY84w5DTz6Lk"><span class="num" data-page-node-id="PLMRoSdAFtgckHtNIUp5EB">②</span>核心机制 / 组成</h2>
+  <p class="kicker" data-page-node-id="INVTHIwHwS1elxmIXesFai">三层架构 + 三大操作 + 两个特殊文件</p>
+
+  <h3 style="margin-bottom:10px;" data-page-node-id="HPLYG4w4OPzr5wm844750K">三层架构</h3>
+  <div class="cards" data-page-node-id="pch6Ee2QR3YtY9uk00OAcG">
+    <div class="card" data-page-node-id="wSmaQFkBjvAxzyDPSBB9jM"><h3 data-page-node-id="a8ni5JFXE1CFgvRA1wsVwA">🗂 原始素材层 raw/</h3><p data-page-node-id="bryTuxYGBC5jV3Drvp9UWm">你收集的文章、论文、PDF、图片。<strong data-page-node-id="66NNrLIt49MNM9PVhhB4mn">不可变</strong>——LLM 只读不改，这是你的事实源头（source of truth）。由你写入。</p></div>
+    <div class="card" data-page-node-id="MGEzmkBeg0JDhsyLkV2eBK"><h3 data-page-node-id="hicem0IwfC9F4ly8xFtaNY">📖 Wiki 层 wiki/</h3><p data-page-node-id="bi6LeCbQs9vBBUWYIqTONI">LLM 生成并全权维护的 Markdown 页面：摘要、实体页、概念页、对比分析、总览。你读它，LLM 写它。</p></div>
+    <div class="card" data-page-node-id="EWcU7SQnPhXiHSXTkOh7hD"><h3 data-page-node-id="Wq8z6uRwlfzCJKtwrNbddW">📋 规范层 Schema</h3><p data-page-node-id="3x6XQoNtJXUI60CtTkRNF9">一份 <code data-page-node-id="Y2f7hsGSWbq35yWtyHmyqo">AGENTS.md</code> / <code data-page-node-id="2ZpWzjIqdyVaRbybW2OYCI">CLAUDE.md</code>，规定 wiki 的结构约定和工作流。它是让 LLM 成为"纪律严明的维护者"而非普通聊天机器人的关键配置，随使用共同演进。</p></div>
+  </div>
+
+  <h3 style="margin:22px 0 10px;" data-page-node-id="2A1DIEvlhHbbmCScSlQfWS">三大操作</h3>
+  <table data-page-node-id="6jC0PoLCGnFdQNyW4gab62">
+    <tr data-page-node-id="gCVmZt3Pmu7vhLOHAWZhTI"><th style="width:110px;" data-page-node-id="nTgXsok385S321EICck8ah">操作</th><th data-page-node-id="DzuKhNvgte14IzkZFm4ksA">做什么</th></tr>
+    <tr data-page-node-id="KjnGBGueBxj6TAw7jtDYNk"><td data-page-node-id="PdDzeJ4BwdVcrxXGbacwd9"><strong data-page-node-id="gdUE6bxc1lB1JhfRleqt5V">Ingest 收录</strong></td><td data-page-node-id="mKGAoUxrwhSsyGREosLvKM">你把新素材丢进 <code data-page-node-id="vaD9Dl25e1XOIkSgTUU0RS">raw/</code>，LLM 通读 → 写摘要页 → 更新相关实体页和概念页 → 更新索引 → 追加日志。<strong data-page-node-id="5PUjFRfbRxp038vsSgpGMG">一份素材可能牵动 10–15 个页面</strong>，交叉引用自动补齐，新旧矛盾自动标记。</td></tr>
+    <tr data-page-node-id="4GiCWvWPjseAPurlNhGD3P"><td data-page-node-id="jmLEq4HHMVC4iMMr0B8iAz"><strong data-page-node-id="3NkcJtFIxXPmIBdVe4KUOB">Query 查询</strong></td><td data-page-node-id="e8bHuA2x2HVntddy1DoCEX">先读 <code data-page-node-id="qH1zFJeqzYo6hHwxTPxi7s">index.md</code> 定位相关页面，再钻取并综合出带引用的答案。关键洞察：<span class="hl" data-page-node-id="y2UUp7gF33Pn0R4yC7lJ3x">好的回答应该回填成 wiki 的新页面</span>，让你的每次探索也沉淀进知识库，而不是消失在聊天记录里。</td></tr>
+    <tr data-page-node-id="sb6kd80DdsT75EEZ3T27VO"><td data-page-node-id="CphPAkzL1Qwi8y4EMwA2lj"><strong data-page-node-id="8zC4mDfV9e2kP4yufiIx5d">Lint 体检</strong></td><td data-page-node-id="cSalVot2p35knFkKV0bRVi">定期健康检查：页面间矛盾、被新资料取代的过时结论、没有入链的孤儿页、被反复提及却还没有独立页面的重要概念。</td></tr>
+  </table>
+
+  <h3 style="margin:22px 0 10px;" data-page-node-id="fIqjQcWpOEC2yUafDuetva">两个特殊文件</h3>
+  <div class="cards" data-page-node-id="DWYgv7hQnhzcygBdE3tgFm">
+    <div class="card" data-page-node-id="D2gaGS2l53HGp0XtZEEMNK"><h3 data-page-node-id="50OURHwQ64dOldDHzboM83">index.md（内容索引）</h3><p data-page-node-id="i2rWYcyw1ZCIJw8s4T8WgU">全 wiki 的目录：每个页面一行摘要。LLM 回答问题前先读它来定位——在中 scale（约百份素材、几百个页面）时效果出奇地好，<strong data-page-node-id="ToghnnTudB0zRm70wWtgFq">不需要向量数据库</strong>。</p></div>
+    <div class="card" data-page-node-id="KlSSnEvD5D3xnWLwekptKJ"><h3 data-page-node-id="Du1GhWFc3QUGG2xvB8jyCK">log.md（操作日志）</h3><p data-page-node-id="74jATUSQUDCb4ShwfqJOub">只追加不修改的时间线，记录每次收录、查询、体检。约定统一前缀后可用 <code data-page-node-id="NuWocWOPsNJji84mKHwrjW">grep "^## " log.md | tail -5</code> 快速回溯"最近发生了什么"。</p></div>
+  </div>
+
+  <h3 style="margin:22px 0 10px;" data-page-node-id="GbWePFXuP4nYbq3rHYZwam">一次 Ingest 的流水线</h3>
+  <div class="flow" data-page-node-id="iZgYR9Z5Y3zZcEETwlyWtp">
+    <span class="step" data-page-node-id="2ub4pV9WDMlkCr3cE7QmX2">素材放入 raw/</span><span class="arr" data-page-node-id="hqbB7DJWktqmPo45GPZlxg">→</span>
+    <span class="step" data-page-node-id="K2HD4fHHi9GkMrFhlF1Duk">LLM 通读全文</span><span class="arr" data-page-node-id="sjPDZfaEQS5VteCzSdAk9V">→</span>
+    <span class="step" data-page-node-id="voG1DeweCGSslcsyylNDj6">写 sources/ 摘要页</span><span class="arr" data-page-node-id="W6GcrtSkZTrF71F2TzxF0P">→</span>
+    <span class="step" data-page-node-id="MYJZElBBqzen8AQ1rdiXbE">更新 entities/ 概念页</span><span class="arr" data-page-node-id="C9fNvCtTxJpv7piA04LK3d">→</span>
+    <span class="step" data-page-node-id="yuKsxzmRmw8iC7gFD57CYo">补全交叉引用</span><span class="arr" data-page-node-id="3AHxDmudb0jHJfu1kGhLVu">→</span>
+    <span class="step" data-page-node-id="pERG8wDuk6xh61c0HTVH1b">更新 index.md + log.md</span>
+  </div>
+
+  <div class="tip" data-page-node-id="8WUJ8tmSg5aEN0uyIBnvvB">💡 为什么这个模式能成立？维护知识库最磨人的不是读和想，而是<strong data-page-node-id="WbvTh92D6FZCvM075SXhnM">记账</strong>——更新交叉引用、保持摘要同步、标记矛盾。人类会因为维护负担远超价值而荒废 wiki；LLM 不会累、不会忘、一次能改 15 个文件。维护成本趋近于零，知识库才第一次真正"养得活"。这个思想可以追溯到 1945 年 Vannevar Bush 的 Memex——他没解决的"谁来维护"，LLM 补上了。</div>
+</section>
+
+<section data-page-node-id="fH8KOrbtAmKKth0KH73HVn">
+  <h2 data-page-node-id="TdddCluRQ3lsfwFroWWNMz"><span class="num" data-page-node-id="InfW1HLGPEwVLSUgPwjAEO">③</span>一个具体场景</h2>
+  <p class="kicker" data-page-node-id="iVHpymPCZwxHkbBcUOymX1">用"深度研究一个技术方向"走一遍完整流程</p>
+  <p data-page-node-id="5ayuOcnJ8X3TbkcmtIVfL0">假设你接下来三个月要吃透 <strong data-page-node-id="lT6PIXsSqXbHWX6ClRYsQ0">Transformer 架构的演进</strong>。你的工作台左边开着 Claude Code（挂着刚装好的 llm-wiki-agent），右边开着 Obsidian。</p>
+  <p data-page-node-id="v8qqc2o96GQNZ3RcD0dnxd"><strong data-page-node-id="pCZxhUZHmKE8x5dHC5K6kf">第 1 周：</strong>你把《Attention Is All You Need》的 PDF 丢进 <code data-page-node-id="chFfJuVUFJr8dC21e1Es4j">raw/</code>，说一句 "ingest raw/papers/attention-is-all-you-need.md"。Agent 读完，生成了论文摘要页，拆出了 <code data-page-node-id="NjPdukqGWz2eQjtvaI7fhZ">entities/self-attention.md</code>、<code data-page-node-id="nuaLZ5WJ0PqkGOHWWwJNw4">concepts/位置编码.md</code>，更新了 <code data-page-node-id="yFe2EWEHJT8TtOEp8LFMTF">index.md</code>，在 <code data-page-node-id="RhmB2S9UL2MxMR6eaftDrW">log.md</code> 记了一笔。你在 Obsidian 的图谱视图里看到三个节点亮了起来。</p>
+  <p data-page-node-id="BWYM7C4hWiuUVXMoqV2tc7"><strong data-page-node-id="bZ15ngGdmRhfE85ZtI85z2">第 4 周：</strong>你已经收录了十几篇论文。你随口问："位置编码从绝对式到 RoPE 的演进动机是什么？"Agent 没有去翻原始 PDF——它读 <code data-page-node-id="GaOnLmXfOUmkoH7RtMOJqU">index.md</code>，钻进早已整理好的相关页面，综合出一份带引用的对比分析。然后它反问你一句：<em data-page-node-id="NtmMkjQXHIaltJ6V3mKgJH">"这份分析要不要存回 wiki？"</em>你说存，于是 <code data-page-node-id="1veIX9TZCuY9EB6jTKAxwj">syntheses/位置编码演进.md</code> 诞生了——你的提问本身也变成了知识库的一部分。</p>
+  <p data-page-node-id="4NqHAEAQrSoDoyfPkG7vtj"><strong data-page-node-id="nGLRZE9dNfPDMb4Z5zKRLL">第 10 周：</strong>你运行 lint，Agent 报告："《FlashAttention》摘要与《稀疏注意力综述》在'长序列训练瓶颈'上的结论存在矛盾，后者发表于更新之后，建议标注；另外'KV Cache'被 6 个页面提及但没有自己的页面。"你让它补上——wiki 自己长出了需要修剪的枝丫，而你只需要做园丁的决定。</p>
+  <blockquote data-page-node-id="9vWCvrSa6VJUOX9ks8U2KA">三个月后你拥有的不是"一堆读过的论文"，而是一张<strong data-page-node-id="nCPOGWIwdDdtuA4r0TiqtV">几百个页面互相链接、矛盾已标记、结论持续保鲜的知识网络</strong>——这就是"复利"的含义。</blockquote>
+</section>
+
+<section data-page-node-id="g34DF9xHVAeniPDSkRYoWw">
+  <h2 data-page-node-id="LmImP4nIvMBMoUxPCIqY58"><span class="num" data-page-node-id="IRfK7z86W0sEELfdq81O0n">④</span>概念边界</h2>
+  <p class="kicker" data-page-node-id="Bk6CfuYcR8UKFzwW223TGQ">它和谁最容易混淆？边界画在哪里？</p>
+
+  <div class="vs" data-page-node-id="ahgbRkTgMmnUPIZkevG5x6">
+    <p data-page-node-id="xs5LApYJ29JnTIGvcx442l"><span class="tag a" data-page-node-id="1yqJEHf47arChfCxpIB4mH">⭕ LLM Wiki</span> vs <span class="tag b" data-page-node-id="GBu1mhhiiGnFXOJnER7yzF">❌ RAG / NotebookLM</span></p>
+    <table data-page-node-id="Z2kWYQhoslFC6gCUaVDKjb">
+      <tr data-page-node-id="IcIQ1ijCfl5HKvyyDipT7K"><th data-page-node-id="I3AWPdieLeMDRwgXKvLzTE"></th><th data-page-node-id="hNgPFfRMgejiLborUi0xT0">LLM Wiki</th><th data-page-node-id="fPLZNN4xmFQw5r8YMjp2Xi">RAG / NotebookLM</th></tr>
+      <tr data-page-node-id="5lURF6H03lGSYlTFlxmbbf"><td data-page-node-id="t2T7iaCcNKlwRkwtfRTX6a"><strong data-page-node-id="EUB0cWGxNp1wdlPGFW3rbQ">知识形态</strong></td><td data-page-node-id="ILqtHWV1xUqKJNeZ6Z6YXZ">编译后的持久工件，持续更新</td><td data-page-node-id="x6Z0l65FAYphjCbHo9gY73">原始文档块，查询时现检索</td></tr>
+      <tr data-page-node-id="bQPbhJHAgfLv6FaGBRbnji"><td data-page-node-id="FFXODK5ojfo9Hb2nBOtMiF"><strong data-page-node-id="pFCWJunQeHO8vo4lavZCH3">积累性</strong></td><td data-page-node-id="yKcnKvHy19SYpvlQc7Jo6X">每次收录和提问都在增值（复利）</td><td data-page-node-id="yV6d28tVwTHUXvSG18CiVG">每次提问从零开始，无积累</td></tr>
+      <tr data-page-node-id="zziZx9d90yNr1p0ezaH4JT"><td data-page-node-id="w2Nxo4EXEAciyWH55wM6bX"><strong data-page-node-id="gyZCgcO5C0PE1MrWGJyQtn">擅长</strong></td><td data-page-node-id="qD9RnI78kSGVjMaKUt4ViS">深度研究、长期追踪、跨源综合</td><td data-page-node-id="O4ae3k0tYaGP3EdVZDIRrt">海量文档中的精确片段引用</td></tr>
+    </table>
+    <p style="font-size:14px; color:var(--muted);" data-page-node-id="TkWXhHCoW1IVaZEvJTaVnH">两者不互斥：wiki 增长到几千页后，也可以引入检索工具（如 qmd）辅助导航。</p>
+  </div>
+
+  <div class="vs" data-page-node-id="laRWS2ZEFiAYKvsRaMfJVT">
+    <p data-page-node-id="uJdNL9E0xD42gDlJNsNDNU"><span class="tag a" data-page-node-id="CobD1rfZrejtjoDZaf5Vzk">⭕ LLM Wiki</span> vs <span class="tag b" data-page-node-id="oXQle78vbvrQewZuGvjGoS">❌ 传统个人 Wiki / Obsidian 笔记库</span></p>
+    <p data-page-node-id="ZeBzwEIt2IucOF8Qab7ErI">表面上看都是一堆互相链接的 Markdown 页面，但<strong data-page-node-id="0oVF6OJTT4UvE7h5GEsCGC">写作者完全不同</strong>：传统 wiki 由你亲手写、亲手维护——交叉引用靠自觉，维护负担随页面数线性增长，所以绝大多数人的 wiki 都成了"坟场"。LLM Wiki 里<strong data-page-node-id="oNSMUDhnPxjHIMAVIu042l">LLM 是唯一的维护者</strong>，你只负责筛选素材和提问。Obsidian 在这里只是"浏览器"，不再是"编辑器"。</p>
+  </div>
+
+  <div class="vs" data-page-node-id="zLwkvmLXDKoUBd3d9HJrxl">
+    <p data-page-node-id="MfeF1iXXTQ11njxJLZfppY"><span class="tag a" data-page-node-id="zl8EsSYnSHPSGaCyJ6WBcU">⭕ LLM Wiki</span> vs <span class="tag b" data-page-node-id="HCBM2vruXh6Ykl1OrUwdDp">❌ 某个具体软件 / 产品</span></p>
+    <p data-page-node-id="4ZONDIK4m2fC5iEjfiDgrA">这是最常见的误解：LLM Wiki <strong data-page-node-id="l3tD7gtY7PT72F5OEJ7Ba7">不是一个软件，而是一种模式（pattern）</strong>——三层架构（raw / wiki / schema）+ 三个操作（ingest / query / lint）。Karpathy 的 gist 刻意保持抽象，任何能读写 Markdown 的 Agent（Claude Code、Codex、Gemini CLI……）都能实例化它。你今天安装的 <code data-page-node-id="xjApKxFVzHO3qrbvQiGmyv">llm-wiki-agent</code> 就是其中一个社区实现。</p>
+  </div>
+
+  <div class="vs" data-page-node-id="0ykY7r2FiLNPB7vOkmCfl7">
+    <p data-page-node-id="jXVBtspUZODJoxKfhZJqr9"><span class="tag a" data-page-node-id="fpc26bhF4zWitowzSwBCHw">⭕ LLM Wiki</span> vs <span class="tag b" data-page-node-id="ICLHV5fsnHEBaQsfslZZkd">❌ 知识图谱工具（如 Obsidian Graph 本身）</span></p>
+    <p data-page-node-id="YLp0RvgSl0ynONG3PKqVqP">图谱视图只是 wiki 的"可视化外壳"。图谱工具不负责生成内容、维护一致性；LLM Wiki 的价值在写入侧（自动 ingest + 交叉引用），图谱只是让你看清它的形状。</p>
+  </div>
+</section>
+
+<section data-page-node-id="BvEptjQ2nM8q1FqX2BFIJm">
+  <h2 data-page-node-id="Zy0aKyeN52KtmCXkmpJZy1"><span class="num" data-page-node-id="8kEvpgvGxiIaeCXtT4m023">⑤</span>参考资料</h2>
+  <p class="kicker" data-page-node-id="vPt3Xdv02NtbjCY94yTTNh">以下链接均经过联网核实（2026-09-18）</p>
+  <ul class="refs" data-page-node-id="mBShe0BlL75T1ofi79ifDp">
+    <li data-page-node-id="VBa54fwYJtoHhj6gr4NgGE">
+      <a href="https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f" target="_blank" data-page-node-id="omgi2OrTKsI6w7dq70OCU6">Andrej Karpathy — LLM Wiki（原始 Gist，2026-04）</a>
+      <div class="desc" data-page-node-id="RrAwwFzaBSyseKNwT3C4b1">概念的源头。本文档的核心内容（三层架构、三大操作、Memex 渊源）均出自此文的核实版本。</div>
+    </li>
+    <li data-page-node-id="6IZx5idhb17fOcoK2IzD6E">
+      <a href="https://github.com/SamurAIGPT/llm-wiki-agent" target="_blank" data-page-node-id="dLr2aWX9i3QST123SqYc9T">GitHub — SamurAIGPT/llm-wiki-agent</a>
+      <div class="desc" data-page-node-id="P67WUv4qT64g1ELciMDmB4">本机已安装的 Agent 实现。纯配置文件驱动，支持 Claude Code / Codex / OpenCode / Gemini CLI。</div>
+    </li>
+    <li data-page-node-id="gYaDl97LBqyl5qbYgXmdw3">
+      <a href="https://github.com/zoubingwu/llm-wiki" target="_blank" data-page-node-id="CLDKzXxe4QGdzwPyRyZrgj">GitHub — zoubingwu/llm-wiki</a>
+      <div class="desc" data-page-node-id="TFZYBy4jGCTQAiF1s5WCnq">另一个中文友好的实现：Astro 发布成可浏览网站，采用 Obsidian 风格 [[wikilink]]。</div>
+    </li>
+    <li data-page-node-id="9QQCuLEAIMMO6Rkc779Jhp">
+      <a href="https://www.theatlantic.com/magazine/archive/1945/07/as-we-may-think/303881/" target="_blank" data-page-node-id="XvrGyGy3SJ9D2lm3sGQSfH">Vannevar Bush — As We May Think（The Atlantic, 1945）</a>
+      <div class="desc" data-page-node-id="3Xeypd75DKcYy5l7nraTq2">Memex 的原始构想，LLM Wiki 思想上 80 年前的祖先。</div>
+    </li>
+  </ul>
+</section>
+
+<footer data-page-node-id="9bL3RtiGmP6ojbtu67bCxq">个人概念学习资料生成器 · 生成于 2026-09-18 · 上一份：Skill ✅ ｜ 本份：LLM Wiki ✅ ｜ 等待下一个概念…</footer>
+</div>
+</body>
+</html>
